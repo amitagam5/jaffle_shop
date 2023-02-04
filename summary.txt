@@ -1,0 +1,24 @@
+This is a summary of my actions throughout the exercise.
+
+First I had to connect to the postgres DB using pgadmin. Got the credentials from docker-compose.yml.
+Creating the new models for representing data was pretty straightforward.
+I decided to push everything to main and not create a branch for each part, just to save time and since it's only me working on this.
+
+The second part was the one that took the longest.
+I used FastAPI since it's really the fastest for setting up a web based API.
+Getting sqlalchemy to work with the defined DB took some time, until I realised I had to specify the schema in each model class (__table_args__ = {'schema': 'exercise'}).
+From there on everything went pretty well.
+In retrospect, I'd have committed more often during my work, it just took some time until I had something that even worked.
+
+There was no definition of what to do when input is invalid (impossible date, str instead of int, etc.)
+I decided to take a lax approach and ignore whatever wrong input was given. It was faster for more, but would have been pretty confusing for a user.
+In a real world situation I'd expect some requirement regarding errors and code accordingly.
+
+The last part of defining a GitHub Action was a bit time-consuming since feedback is slow.
+I wasn't sure what the assignment meant by saying "Search how to set up a basic GitHub Actions workflow with Python", since running dbt is possible through CLI.
+I talked to Or and we agreed I could use shell commands to run dbt, like the first part of the assignment said.
+It was straightforward here too, except for figuring out how to wait until docker finished setting up the postgres DB before running dbt.
+Eventually I found out about --detach which does just what I needed.
+
+All in all it was an interesting assignment.
+I did learn some new tricks from it and got more comfortable with dbt and its usage and potential.
